@@ -28,7 +28,8 @@ class Student extends People implements Do{
 
 	@Override
 	public void Fuck() {
-		System.out.println("You have fucked a Person");
+		fuck
+		System.out.println("You have fucked a Person  576565");
 	}
 
 	@Override

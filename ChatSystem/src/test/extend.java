@@ -24,12 +24,17 @@ interface Do{
 class Student extends People implements Do{
 	float getPeopleId(){
 		return super.id;
+		dsafsdfds'afsdk'afas'kfas
 	}
 
 	@Override
 	public void Fuck() {
+<<<<<<< HEAD
 		fucksdalfjdssdafdsf
 		System.out.println("You have fucked a Person  576565");
+=======
+		System.out.println("You have fucked a Person 023132");
+>>>>>>> branch 'master' of https://github.com/LittleSmartApe/JavaChatSystem.git
 	}
 
 	@Override
@@ -47,5 +52,5 @@ class Man extends People{
 	
 }
 class women extends People{
-	hdhdfghf
+	
 }

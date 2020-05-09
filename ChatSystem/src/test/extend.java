@@ -45,3 +45,6 @@ class Student extends People implements Do{
 class Man extends People{
 	
 }
+class women extends People{
+	
+}

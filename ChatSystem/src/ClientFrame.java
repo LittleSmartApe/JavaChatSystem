@@ -14,7 +14,7 @@ class ClientFrame extends JFrame {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     //窗口宽度
-    final int WIDTH = 700;
+    final int WIDTH = 900;
     //窗口高度
     final int HEIGHT = 700;
 

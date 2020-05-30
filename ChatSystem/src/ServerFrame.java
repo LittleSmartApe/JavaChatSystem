@@ -8,21 +8,23 @@ import java.net.ServerSocket;
 import java.net.Socket;
 public class ServerFrame extends JFrame{
 	//窗口宽度
-    final int WIDTH = 500;
+    final int WIDTH = 300;
     //窗口高度
-    final int HEIGHT = 200;
+    final int HEIGHT = 120;
     JButton start = new JButton("Start");
     JButton exit = new JButton("Exit");
+    JTextArea notice = new JTextArea();
     public ServerFrame() {
         setTitle("Server");
         setSize(WIDTH,HEIGHT);
-        setResizable(false);
+        setResizable(true);
         setLayout(new FlowLayout());
         this.add(exit);
         this.add(start);
         exit.addActionListener(
         		new ActionListener() {
         			public void actionPerformed(ActionEvent event) {
+        				System.out.println("服务器已关闭");
         				System.exit(0);
         			}
         		}
@@ -30,18 +32,19 @@ public class ServerFrame extends JFrame{
         start.addActionListener(new ActionListener(){
         	public void actionPerformed(ActionEvent event){
 
-             new Thread(new Start()).start();
+             new Thread(new Activate()).start();
         		
         	}
         });
     }
 }
-class Start implements Runnable{
+class Activate implements Runnable {
 	public void run() {
 		   //建立服务器
         ServerSocket server;
 		try {
 			server = new ServerSocket(6666);
+			System.out.println("服务器正在运行······");
 			while(true) {
                 //接收客户端Socket
                 Socket client = server.accept();
@@ -56,12 +59,5 @@ class Start implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        //提示服务端建立成功
-        //socket.getInetAddress()返回InetAddress对象包含远程计算机的IP地址。
-        // InetAddress.getHostAddress()返回String对象与该地址的文本表示。
-      //  System.out.println("Server online...."+server.getInetAddress().getLocalHost().getHostAddress()+","+6666);
-        //创建客户端窗口对象
 	}
 }
-    
-

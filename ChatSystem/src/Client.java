@@ -120,6 +120,7 @@ public class Client {
         {
             cframe.jtaChat.append("服务器挂了.....\n");
             e.printStackTrace();
+            cframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//******
         }
     }
 }

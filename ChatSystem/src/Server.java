@@ -1,4 +1,5 @@
 
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,6 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javax.swing.JFrame;
 
 class ServerThread implements Runnable{
 
@@ -146,22 +149,17 @@ public class Server {
 
     public static void main(String[] args) throws Exception{
 
-        //建立服务器
-        ServerSocket server=new ServerSocket(6666);
-        //提示服务端建立成功
-        //socket.getInetAddress()返回InetAddress对象包含远程计算机的IP地址。
-        // InetAddress.getHostAddress()返回String对象与该地址的文本表示。
-      //  System.out.println("Server online...."+server.getInetAddress().getLocalHost().getHostAddress()+","+6666);
-
-        while(true) {
-            //接收客户端Socket
-            Socket client = server.accept();
-            //提取客户端Ip
-            String ip=client.getInetAddress().getHostAddress();
-            //提取客户端端口号
-            int port=client.getPort();
-            //建立新的服务器线程, 向该线程提供服务器ServerSocket，客户端Socket，客户端IP和端口
-            new Thread(new ServerThread(client, server, ip, port)).start();
-        }
+        ServerFrame sframe = new ServerFrame();
+        //窗口关闭键无效，必须通过退出键退出客户端以便善后
+        sframe.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        //获取本机屏幕横向分辨率
+        int w = Toolkit.getDefaultToolkit().getScreenSize().width;
+        //获取本机屏幕纵向分辨率
+        int h = Toolkit.getDefaultToolkit().getScreenSize().height;
+        //将窗口置中
+        sframe.setLocation((w - sframe.WIDTH)/2, (h - sframe.HEIGHT)/2);
+        //设置客户端窗口为可见
+        sframe.setVisible(true);
+        
     }
 }

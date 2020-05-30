@@ -18,7 +18,7 @@ public class ServerFrame extends JFrame{
         setTitle("Server");
         setSize(WIDTH,HEIGHT);
         setResizable(true);
-        setLayout(new FlowLayout());
+        setLayout(new GridLayout());
         this.add(exit);
         this.add(start);
         exit.addActionListener(
@@ -57,7 +57,7 @@ class Activate implements Runnable {
             }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("请不要重复开启服务器！");
 		}
 	}
 }

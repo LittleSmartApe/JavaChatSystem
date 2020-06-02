@@ -1,5 +1,7 @@
 import java.io.*;
 import java.net.*;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
@@ -21,7 +23,13 @@ public class Client {
     public static void main(String[] args) throws Exception{
 
         //创建客户端窗口对象
+    	Color frame=new Color(186,248,196);
         ClientFrame cframe = new ClientFrame();
+        cframe.getContentPane().setBackground(frame);//改变界面背景色为绿色
+        
+        //去掉咖啡图标
+        cframe.setIconImage(Toolkit.getDefaultToolkit().createImage("src/timg.png"));
+        
         //窗口关闭键无效，必须通过退出键退出客户端以便善后
         cframe.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         //获取本机屏幕横向分辨率
@@ -35,6 +43,7 @@ public class Client {
 
         
         try {
+        	cframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点X关闭
             //连接服务器
             client = new Socket(InetAddress.getLocalHost(), 6666);
             //获取输入输出流

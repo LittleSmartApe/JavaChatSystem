@@ -14,13 +14,18 @@ public class ServerFrame extends JFrame{
     JButton start = new JButton("Start");
     JButton exit = new JButton("Exit");
     JTextArea notice = new JTextArea();
+    JLabel jl3= new JLabel();
     public ServerFrame() {
         setTitle("Server");
         setSize(WIDTH,HEIGHT);
         setResizable(true);
-        setLayout(new GridLayout());
+        setLayout(new GridLayout());//网格布局
+        jl3.setIcon(new ImageIcon("img/QQ图片20200415114606.png"));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 让JFrame的关闭按钮起作用
         this.add(exit);
         this.add(start);
+        this.add(jl3);//添加图片
+
         exit.addActionListener(
         		new ActionListener() {
         			public void actionPerformed(ActionEvent event) {
@@ -38,6 +43,7 @@ public class ServerFrame extends JFrame{
         });
     }
 }
+//多线程开启服务器 防止卡死
 class Activate implements Runnable {
 	public void run() {
 		   //建立服务器

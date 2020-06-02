@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>img/QQ图片20200415114606.png</name>
+			<type>1</type>
+			<location>D:/素材/表情包/QQ图片20200415114606.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

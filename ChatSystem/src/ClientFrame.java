@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.awt.color.*;
 
 class ClientFrame extends JFrame {
     //时间显示格式
@@ -34,7 +35,6 @@ class ClientFrame extends JFrame {
     //创建聊天消息框
     JTextArea jtaChat = new JTextArea();
 
-    
     //当前在线列表的列标题
     String[] colTitles = {" ", "IP", "端口"};
     //当前在线列表的数据
@@ -50,6 +50,7 @@ class ClientFrame extends JFrame {
                         }
                     }
             );
+    
 
     //创建聊天消息框的滚动窗
     JScrollPane jspChat = new JScrollPane(jtaChat);
@@ -80,6 +81,18 @@ class ClientFrame extends JFrame {
         btnSend.setFont(new Font("宋体", Font.BOLD, 18));
         btnClear.setFont(new Font("宋体", Font.BOLD, 18));
         btnExit.setFont(new Font("宋体", Font.BOLD, 18));
+        
+        
+        //设置按钮的颜色
+        Color send = new Color(47,92,239);
+        Color clear = new Color(224,135,19);
+        Color exit = new Color(135,6,11);
+        btnSend.setBackground(send);
+        btnClear.setBackground(clear);
+        btnExit.setBackground(exit);
+        btnSend.setForeground(Color.WHITE);
+        btnClear.setForeground(Color.WHITE);
+        btnExit.setForeground(Color.WHITE);
 
         //添加按钮
         this.add(btnSend);
@@ -213,3 +226,4 @@ class ClientFrame extends JFrame {
                 );
     }
 }
+

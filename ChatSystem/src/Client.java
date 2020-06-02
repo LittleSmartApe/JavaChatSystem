@@ -28,7 +28,7 @@ public class Client {
         cframe.getContentPane().setBackground(frame);//改变界面背景色为绿色
         
         //去掉咖啡图标
-        cframe.setIconImage(Toolkit.getDefaultToolkit().createImage("src/timg.png"));
+        cframe.setIconImage(Toolkit.getDefaultToolkit().createImage("img/timg.png"));
         
         //窗口关闭键无效，必须通过退出键退出客户端以便善后
         cframe.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

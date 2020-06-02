@@ -20,8 +20,8 @@ public class ServerFrame extends JFrame{
         setSize(WIDTH,HEIGHT);
         setResizable(true);
         setLayout(new GridLayout());//网格布局
-        jl3.setIcon(new ImageIcon("img/QQ图片20200415114606.png"));
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 让JFrame的关闭按钮起作用
+        jl3.setIcon(new ImageIcon("img/haha.png"));//添加图片
+   
         this.add(exit);
         this.add(start);
         this.add(jl3);//添加图片
@@ -58,8 +58,10 @@ class Activate implements Runnable {
                 String ip=client.getInetAddress().getHostAddress();
                 //提取客户端端口号
                 int port=client.getPort();
+                
                 //建立新的服务器线程, 向该线程提供服务器ServerSocket，客户端Socket，客户端IP和端口
                 new Thread(new ServerThread(client, server, ip, port)).start();
+                
             }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

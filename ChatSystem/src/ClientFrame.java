@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.color.*;
@@ -25,6 +26,8 @@ class ClientFrame extends JFrame {
     JButton btnClear = new JButton("清屏");
     //创建退出按钮
     JButton btnExit = new JButton("退出");
+    //更改信息按钮
+    JButton btnChange = new JButton("更改信息");
 
     //创建消息接收者标签
     JLabel lblReceiver = new JLabel("谁来接收：");
@@ -73,6 +76,7 @@ class ClientFrame extends JFrame {
         btnSend.setBounds(20, 600, 100, 60);
         btnClear.setBounds(140, 600, 100, 60);
         btnExit.setBounds(260, 600, 100, 60);
+        btnChange.setBounds(500, 500, 100, 60);
 
         //设置标签大小和位置
         lblReceiver.setBounds(20, 420, 300, 30);
@@ -98,6 +102,7 @@ class ClientFrame extends JFrame {
         this.add(btnSend);
         this.add(btnClear);
         this.add(btnExit);
+        this.add(btnChange);
 
         //添加标签
         this.add(lblReceiver);
@@ -189,6 +194,37 @@ class ClientFrame extends JFrame {
                             }
                         }
                 );
+        btnChange.addActionListener
+        (
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                		InformationinterfaceFrame iframe = new InformationinterfaceFrame();
+                		iframe.IP.setText(Client.ips);
+                		iframe.IP.setBounds(100,-80,200,200);
+                		iframe.IP.setFont(new Font("楷体", Font.BOLD, 16));
+                		iframe.add(iframe.IP);
+                		
+                		iframe.PORT.setText(Client.ports);
+                		iframe.PORT.setBounds(115,-50,200,200);
+                		iframe.PORT.setFont(new Font("楷体", Font.BOLD, 16));
+                		iframe.add(iframe.PORT);
+                		
+                		iframe.NAMES.setText("???????");
+                		iframe.NAMES.setBounds(85,-20,200,200);
+                		iframe.NAMES.setFont(new Font("楷体", Font.BOLD, 16));
+                		iframe.add(iframe.NAMES);
+                        //获取本机屏幕横向分辨率
+                        int w = Toolkit.getDefaultToolkit().getScreenSize().width;
+                        //获取本机屏幕纵向分辨率
+                        int h = Toolkit.getDefaultToolkit().getScreenSize().height;
+                        //将窗口置中
+                        iframe.setLocation((w - iframe.width)/2, (h - iframe.height)/2);
+                        //设置客户端窗口为可见
+                        iframe.setVisible(true);
+                    	}
+                    }
+        );
         //添加在线列表项被鼠标选中的相应事件
         jtbOnline.addMouseListener
                 (

@@ -12,7 +12,9 @@ import java.nio.charset.*;
 import java.text.*;
 
 
-public class Client {
+public class Client implements Runnable {
+	public static String ips="";
+	public static String ports="";
 
     //建立客户端
     public static Socket client=null;
@@ -20,7 +22,7 @@ public class Client {
     //消息接收者uid
     public static StringBuilder uidReceiver = null;
 
-    public static void main(String[] args) throws Exception{
+    public  void run(){
 
         //创建客户端窗口对象
     	Color frame=new Color(186,248,196);
@@ -46,6 +48,8 @@ public class Client {
         	cframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//点X关闭
             //连接服务器
             client = new Socket(InetAddress.getLocalHost(), 6666);
+            ips=InetAddress.getLocalHost().getHostAddress();
+            ports=String.valueOf(client.getLocalPort());
             //获取输入输出流
             InputStream in = client.getInputStream();
             OutputStream out = client.getOutputStream();

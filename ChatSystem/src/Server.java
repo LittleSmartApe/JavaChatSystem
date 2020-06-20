@@ -158,7 +158,6 @@ public class Server {
         int h = Toolkit.getDefaultToolkit().getScreenSize().height;
         //将窗口置中
         sframe.setLocation((w - sframe.WIDTH)/2, (h - sframe.HEIGHT)/2);
-        sframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 让JFrame的关闭按钮起作用
         //设置客户端窗口为可见
         sframe.setVisible(true);
         

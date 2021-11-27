@@ -1,2 +1,2 @@
 # JavaChatSystem
-小小智源
+基于Java的聊天室
